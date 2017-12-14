@@ -125,6 +125,7 @@ DATE_FORMAT = 'Y-m-d'
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, "static/")
 MEDIA_URL = '/upload/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'upload').replace("//", "/")
 
@@ -150,4 +151,4 @@ REST_FRAMEWORK = {
 }
 
 # allow host
-ALLOWED_HOSTS = ['47.96.6.184','www.lomosite.com','127.0.0.1']
+ALLOWED_HOSTS = ['www.lomosite.com',]
