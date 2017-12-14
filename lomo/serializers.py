@@ -48,9 +48,9 @@ class ArticleSerializer(serializers.ModelSerializer):
 	sub_image = serializers.SerializerMethodField()
 	def get_content(self, obj):
 		request = self.context['request']
-		HTTP_HOST = 'http://' + request.META['HTTP_HOST']
+		HTTP_HOST = request.scheme + '://'+ request.META['HTTP_HOST']
 
-		soup = BeautifulSoup(obj.content, 'lxml')
+		soup = BeautifulSoup(obj.content.encode('utf-8'), 'lxml')
 		tag_list = soup.find_all('p')
 		nodes = []
 		for tag in tag_list:
@@ -69,6 +69,7 @@ class ArticleSerializer(serializers.ModelSerializer):
 				}
 				nodes.append(node)
 				continue
+
 		return nodes
 
 	def get_sub_image(self, obj):

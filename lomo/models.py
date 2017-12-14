@@ -31,8 +31,8 @@ class Vote(models.Model):
 	header = models.CharField('标题', max_length=200, blank=True, null=True)
 	subheader = models.CharField('副标题', max_length=200, blank=True, null=True)
 	editor_say = models.CharField('小编说',max_length=200, blank=True)
-	header_image = models.ImageField('头图', upload_to="header_image", blank=True, null=True)
-	sub_image = models.ImageField('副图', upload_to='header_image', blank=True, null=True)
+	header_image = models.ImageField('头图', upload_to=image_file_path, blank=True, null=True)
+	sub_image = models.ImageField('副图', upload_to=image_file_path, blank=True, null=True)
 	thumb_img = models.ImageField('缩略图', upload_to='thumb_img', blank=True, null=True)
 	created_date = models.DateTimeField('创建时间',auto_now_add=True)
 
@@ -77,9 +77,9 @@ class Vote(models.Model):
 		ordering = ['-created_date']
 
 
-def image_file_path(self, filename):
-	ext = filename.split('.')[-1]
-	return 'choice_image/{}.{}'.format(uuid.uuid4(),ext)
+#def image_file_path(self, filename):
+#	ext = filename.split('.')[-1]
+#	return 'choice_image/{}.{}'.format(uuid.uuid4(),ext)
 
 # choice
 class Choice(models.Model):

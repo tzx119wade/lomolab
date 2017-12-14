@@ -25,8 +25,6 @@ SECRET_KEY = 'dvr^-y&k=32b0s%myzyhg_a8e^cdktz5dz$u&k$)i&y_gq@onc'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -151,4 +149,5 @@ REST_FRAMEWORK = {
     'DATETIME_FORMAT':'%Y-%m-%d %H:%M:%S',
 }
 
-
+# allow host
+ALLOWED_HOSTS = ['47.96.6.184','www.lomosite.com','127.0.0.1']
